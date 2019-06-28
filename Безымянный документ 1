@@ -1,0 +1,84 @@
+
+
+
+
+
+
+
+autocmd Filetype go setlocal noexpandtab
+
+
+set number
+color desert
+
+" set mouse=a
+let g:fzf_layout = { 'down': '~60%' }
+
+" autocmd vimenter * NERDTree
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:ale_fixers = {'vue': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fix_on_save = 1
+let g:ale_linter_aliases = {'vue': ['javascript', 'html', 'scss']}
+
+map <silent> <F3> :NERDTreeToggle<CR>
+map <silent> <F2> :Files<CR>
+map <silent> <F4> :syntax sync fromstart<CR>
+
+
+inoremap <S-Tab> <C-d>
+autocmd Filetype go setlocal noexpandtab
+
+
+color desert
+
+let g:fzf_layout = { 'down': '~60%' }
+
+autocmd BufEnter * :syntax sync fromstart
+
+" autocmd vimenter * NERDTree
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:ale_fixers = {'vue': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fix_on_save = 1
+let g:ale_linter_aliases = {'vue': ['javascript', 'html', 'scss']}
+
+call plug#begin('~/.vim/plugged')
+
+
+
+call plug#end()
+syntax on
+
+let g:ag_working_path_mode="r"
+
+
+
+"color scheme settings
+"colorscheme gruvbox
+"set background=dark
+"let g:gruvbox_contrast_dark = 'soft'
+color dracula
+
+"vim-javascript 
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
+
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+
+map <C-W>o :bp<bar>sp<bar>bn<bar>bd<CR>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+set runtimepath^=~/.vim/bundle/ag

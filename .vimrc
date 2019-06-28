@@ -72,3 +72,5 @@ colorscheme gruvbox
 set bg=dark
 syntax on
 set t_ut=
+set termguicolors
+
